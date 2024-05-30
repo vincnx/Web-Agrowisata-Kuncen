@@ -8,3 +8,24 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+
+.carousel { 
+    position: relative; 
+    height: auto;
+    overflow: hidden; 
+    background-color: #cdcdcd; 
+} 
+  
+.slide-image { 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    position: absolute; 
+    width: 100%; 
+    top: 0; 
+    left: 100%; 
+} 
+  
+.slide-image.active { 
+    left: 0; 
+    transition: all 0.3s ease-out; 
+} 
