@@ -118,7 +118,7 @@
       </div>
     </div>
   </section>
-
+  <x-footer/>
   <script>
     window.onload = function() {
       let slides =
