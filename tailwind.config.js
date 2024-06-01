@@ -17,7 +17,8 @@ export default {
             colors: {
                 'green-page' : '#5EC992',
                 'green-page-light' : '#E7FFF2',
-                'main-page' : '#FD9B00'
+                'main-page' : '#FD9B00',
+                'dark-blue-page' : '#2E475D',
             }
         },
         screens: {
