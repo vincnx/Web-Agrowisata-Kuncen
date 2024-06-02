@@ -20,7 +20,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         // dd($post->gambar);
-        return view('berita_', compact('post'));
+        $posts = Post::orderBy('waktu_upload', 'desc')->paginate(10);
+        return view('berita_', compact('post', 'posts'));
     }
 
 
