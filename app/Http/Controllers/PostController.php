@@ -13,7 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {   
-        $posts = Post::orderBy('waktu_upload', 'desc')->paginate(10);
+        $posts = Post::orderBy('waktu_upload', 'desc')->Paginate(7);
         return view('berita', compact('posts'));
     }
 
