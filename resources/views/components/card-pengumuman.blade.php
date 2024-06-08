@@ -3,9 +3,7 @@
 <div
   {{ $attributes->merge(['class' => 'flex flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 xl:max-w-full']) }}>
   {{-- image --}}
-  <div class="rounded-lg bg-cover bg-center" style="background-image: url('{{ $src }}')">
-    <img class="invisible aspect-square rounded-lg" src="{{ $src }}" alt="" />
-  </div>
+  <img class="aspect-square w-full object-cover rounded-lg" src="{{ $src }}" alt="" />
   {{-- title & description --}}
   <div class="p-5">
     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $judul }}</h5>
