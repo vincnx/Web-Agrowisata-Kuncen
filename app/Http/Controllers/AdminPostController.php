@@ -14,7 +14,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->sortBy('waktu_upload', SORT_REGULAR, true);
+        $posts = Post::orderBy('waktu_upload', 'desc')->paginate(6);
         return view('admin.posts.index', [
             'posts' => $posts,
         ]);
