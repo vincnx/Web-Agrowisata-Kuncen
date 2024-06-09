@@ -1,4 +1,4 @@
-<footer class="bg-slate-50">
+<footer {{ $attributes->merge(['class'=>'bg-slate-50']) }}>
   <div class="container grid grid-cols-12 gap-x-5 mx-auto py-8 lg:py-16">
     <div class="flex flex-col col-start-2 col-end-12 justify-between gap-5 lg:flex-row">
       <div class="flex max-w-[400px] flex-col">
