@@ -4,7 +4,7 @@
   <div class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
       <form class="mx-auto max-w-full" enctype="multipart/form-data" method="POST"
-        action="{{ route('admin.berita.store') }}">
+        action="{{ route('admin.berita.update', $post->id) }}">
         @csrf
         @method('put')
         <!-- judul -->
@@ -33,7 +33,7 @@
                 <label for="gambar"
                   class="txt-preview relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                   <span>Upload a file</span>
-                  <input id="gambar" name="gambar" type="file" class="sr-only" onchange="display_image()">
+                  <input id="gambar" name="gambar" type="file" class="sr-only" onchange="display_image(event)">
                 </label>
                 <p class="txt-preview pl-1">or drag and drop</p>
               </div>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <button type="submit"
-          class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambahkan
+          class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update
           Berita
         </button>
       </form>
@@ -60,14 +60,16 @@
 
 @section('script')
   <script>
+    function a(){
+      const img = document.querySelector('#gambar')
+      document.body.style.backgroudColor = "red"
+    }
     function display_image() {
       const img = document.querySelector('#gambar')
       const img_preview = document.querySelector('#img-preview')
       const txt_preview = document.querySelector('.txt-preview')
-      const preview_hidden = document.querySelector('#preview-hidden')
 
       img_preview.style.display = 'block'
-      preview_hidden.style.display = 'none'
       txt_preview.style.display = 'inline'
       img_preview.src = URL.createObjectURL(img.files[0])
     }

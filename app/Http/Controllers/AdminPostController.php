@@ -70,7 +70,23 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        return 0;
+        $waktu_upload = Carbon::now();
+        $validated = $request->validate([
+            'judul' => 'required',
+            'isi' => 'required',
+        ]);
+        $image = $post->gambar;
+        if($request->gambar){
+            if(!($post->gambar == 'public/posts/RemoveBGLogo.png')){
+                Storage::delete($post->gambar);
+            }
+            $image = $request->file('gambar')->store('public/posts');
+        }
+        $validated['gambar'] = $image;
+        $validated['waktu_upload'] = $waktu_upload;
+        $post->update($validated);
+        
+        return to_route('admin.berita.index');
     }
 
     /**
