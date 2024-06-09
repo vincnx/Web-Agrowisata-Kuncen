@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Storage;
 
 class AdminPostController extends Controller
 {
@@ -14,7 +15,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->sortBy('waktu_upload', SORT_REGULAR, true);
+        $posts = Post::orderBy('waktu_upload', 'desc')->paginate(6);
         return view('admin.posts.index', [
             'posts' => $posts,
         ]);
@@ -69,7 +70,23 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        return 0;
+        $waktu_upload = Carbon::now();
+        $validated = $request->validate([
+            'judul' => 'required',
+            'isi' => 'required',
+        ]);
+        $image = $post->gambar;
+        if($request->gambar){
+            if(!($post->gambar == 'public/posts/RemoveBGLogo.png')){
+                Storage::delete($post->gambar);
+            }
+            $image = $request->file('gambar')->store('public/posts');
+        }
+        $validated['gambar'] = $image;
+        $validated['waktu_upload'] = $waktu_upload;
+        $post->update($validated);
+        
+        return to_route('admin.berita.index');
     }
 
     /**
@@ -77,6 +94,10 @@ class AdminPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        return 0;
+        if(!($post->gambar == 'public/posts/RemoveBGLogo.png')){
+            Storage::delete($post->gambar);
+        }
+        $post->delete();
+        return to_route('admin.berita.index');
     }
 }
