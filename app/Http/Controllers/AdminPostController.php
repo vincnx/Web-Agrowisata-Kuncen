@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Storage;
 
 class AdminPostController extends Controller
 {
@@ -77,6 +78,10 @@ class AdminPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        return 0;
+        if(!($post->gambar == 'public/posts/RemoveBGLogo.png')){
+            Storage::delete($post->gambar);
+        }
+        $post->delete();
+        return to_route('admin.berita.index');
     }
 }
