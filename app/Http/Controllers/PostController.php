@@ -13,8 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {   
-        $posts = Post::orderBy('waktu_upload', 'desc')->Paginate(7);
-        return view('berita', compact('posts'));
+        $post = Post::orderBy('waktu_upload', 'desc')->first();
+        $posts = Post::orderBy('waktu_upload', 'desc')->where('id', '<>', $post->id)->Paginate(3);
+        return view('berita', compact('post', 'posts'));
     }
 
     public function show(Post $post)
