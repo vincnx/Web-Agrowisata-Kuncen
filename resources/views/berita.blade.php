@@ -2,22 +2,23 @@
 
 @section('content')
   <div class="container mx-auto px-10">
-    <h1 class="text-dark-blue-page my-10 pt-10 text-3xl font-semibold">Berita Agrowisata Kuncen</h1>
+    <h1 class="text-dark-blue-page my-10 lg:pt-10 text-2xl lg:text-3xl font-semibold text-center lg:text-left">Berita Agrowisata Kuncen</h1>
     @if ($posts->count())
       {{-- berita utama --}}
       <div class="mb-20">
         {{-- <h2 class="text-2xl">Berita Terbaru</h2> --}}
-        <div class="grid h-[450px] grid-cols-12 gap-x-7">
-          <img src="{{ Storage::url($post->gambar) }}" alt="" class="col-span-6 h-full w-full object-cover">
-          <div class="col-span-6 flex items-center">
-            <div class="text-justify">
+        <div class="grid md:h-[300px] lg:h-[450px] grid-cols-2 gap-x-7">
+          <img src="{{ Storage::url($post->gambar) }}" alt="" class="col-span-2 md:col-span-1 h-full w-full max-h-[500px] object-cover shadow-lg rounded-sm">
+          <div class="col-span-2 md:col-span-1 flex items-center">
+            <div class="text-justify mt-5 md:mt-0">
               <div class="mb-5">
                 <h3 class="text-dark-blue-page mb-5 text-2xl font-semibold">{{ $post->judul }}</h3>
-                <p class="text-dark-blue-page leading-5">{!! Str::words(strip_tags($post->isi), 120, '...') !!}</p>
+                <p class="text-dark-blue-page leading-5 ">{!! Str::words(strip_tags($post->isi), 20, '...') !!}</p>
+                <p class="text-dark-blue-page leading-5 hidden lg:block">{!! Str::words(strip_tags($post->isi), 80, '...') !!}</p>
               </div>
-              <a href="berita/{{ $post->slug }}"
-                class="'inline-flex bg-main-page duration-150' items-center rounded-md border border-transparent px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition ease-in-out hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-gray-900 dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-white dark:focus:bg-white dark:focus:ring-offset-gray-800 dark:active:bg-gray-300">Baca
-                Selengkapnya</a>
+              <a href="berita/{{ $post->slug }}">
+                <x-primary-button>Baca Selengkapnya</x-primary-button>
+              </a>
             </div>
           </div>
         </div>
@@ -29,7 +30,7 @@
           <x-card-pengumuman src="{{ Storage::url($post->gambar) }}" judul="{{ $post->judul }}"
             isi="{{ Str::words(strip_tags($post->isi), 20, '...') }}"
             waktu_upload="{{ Carbon\Carbon::parse($post->waktu_upload)->translatedFormat('l, d F Y') }}"
-            slug="{{ $post->slug }}" class="col-span-4" />
+            slug="{{ $post->slug }}" class="col-span-12 md:col-span-4" />
         @endforeach
       </article>
       {{ $posts->links() }}
