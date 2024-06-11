@@ -93,9 +93,9 @@
       <div class="w-full" x-show="open == 'camp_ground'">
         <div
           class="grid auto-cols-max grid-flow-col gap-5 overflow-x-auto rounded-lg md:grid-flow-row md:grid-cols-2 lg:grid-cols-3">
-          @for ($i = 0; $i < 6; $i++)
+          @foreach ($camp_packages as $camp_package)
             <x-price-card class="mb-2" />
-          @endfor
+          @endforeach
         </div>
       </div>
       {{-- menu makanan --}}
