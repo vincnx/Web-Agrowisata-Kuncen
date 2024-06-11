@@ -161,7 +161,8 @@
         <x-card-pengumuman src="{{ Storage::url($post->gambar) }}" judul="{{ $post->judul }}"
           isi="{{ Str::words(strip_tags($post->isi), 20, '...') }}"
           waktu_upload="{{ Carbon\Carbon::parse($post->waktu_upload)->translatedFormat('l, d F Y') }}"
-          slug="{{ $post->slug }}" />
+          slug="{{ $post->slug }}"
+          class="max-w-sm" />
       @endforeach
     </div>
   </div>
