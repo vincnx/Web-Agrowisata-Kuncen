@@ -54,8 +54,8 @@
         <x-admin-nav-link :href="route('admin.berita.index')" :active="request()->routeIs('admin.berita*')">
           {{ __('Berita') }}
         </x-admin-nav-link>
-        <x-admin-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
-          {{ __('Menus') }}
+        <x-admin-nav-link :href="route('admin.paket-camping.index')" :active="request()->routeIs('admin.paket-camping*')">
+          {{ __('Paket Camping') }}
         </x-admin-nav-link>
         <x-admin-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
           {{ __('Tables') }}

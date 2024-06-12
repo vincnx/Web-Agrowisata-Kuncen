@@ -3,7 +3,7 @@
 @section('content')
   {{-- jumbotron --}}
   <section
-    class="mb-14 bg-gray-300 bg-[url('/public/img/panorama-fasilitas.png')] bg-cover bg-center bg-no-repeat bg-blend-multiply lg:mb-24">
+    class="mb-14 bg-gray-300 bg-[url('/public/img/panorama-fasilitas3.jpg')] bg-cover bg-center bg-no-repeat lg:mb-24">
     <div class="container mx-auto px-10 py-36 text-center sm:items-start lg:py-48">
       <h1
         class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-white drop-shadow-md md:text-5xl lg:text-6xl">
