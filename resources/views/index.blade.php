@@ -94,7 +94,7 @@
         <div
           class="grid auto-cols-max grid-flow-col gap-5 overflow-x-auto rounded-lg md:grid-flow-row md:grid-cols-2 lg:grid-cols-3">
           @foreach ($camp_packages as $camp_package)
-            <x-price-card class="mb-2" />
+            <x-price-card class="mb-2" :data="$camp_package" />
           @endforeach
         </div>
       </div>
