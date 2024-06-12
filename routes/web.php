@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCampPackageController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\Admin;
@@ -35,6 +36,7 @@ Route::middleware(['auth', 'verified', Admin::class])->name('admin.')->prefix('a
     Route::resource('/berita', AdminPostController::class)->parameters([
         'berita' => 'post'
     ]);
+    Route::resource('/paket-camping', AdminCampPackageController::class);
 });
 
 Route::middleware('auth')->group(function () {
