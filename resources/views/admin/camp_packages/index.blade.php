@@ -4,7 +4,7 @@
   <div class="mx-auto flex h-full max-w-7xl flex-col sm:px-6 lg:px-8">
 
     {{-- button --}}
-    <a href="{{ route('admin.berita.create') }}">
+    <a href="{{ route('admin.paket-camping.create') }}">
       <x-primary-button class="mb-5 justify-end">
         {{ __('Tambah Paket') }}
       </x-primary-button>
