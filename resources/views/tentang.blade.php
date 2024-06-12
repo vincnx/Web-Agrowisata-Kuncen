@@ -3,7 +3,7 @@
 @section('content')
   {{-- jumbotron --}}
   <section
-    class="mb-14 bg-gray-300 bg-[url('/public/img/jumbotron-tentang.png')] bg-cover bg-center bg-no-repeat bg-blend-multiply lg:mb-24">
+    class="mb-14 bg-gray-300 bg-[url('/public/img/panorama-tentang1.jpg')] bg-cover bg-center bg-no-repeat lg:mb-24">
     <div class="container mx-auto px-10 py-36 text-center sm:items-start lg:py-48">
       <h1
         class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-white drop-shadow-md md:text-5xl lg:text-6xl">
@@ -23,12 +23,12 @@
       para pengunjung.
     </p>
     {{-- panorama --}}
-    <img src="{{ asset('img/panorama-tentang.png') }}" alt="panorama agrowisata kuncen"
-      class="min-h-80 col-span-12 col-start-1 mb-14 object-cover lg:col-span-10 lg:col-start-2 lg:mb-24">
+    <img src="{{ asset('img/panorama-tentang2.jpg') }}" alt="panorama agrowisata kuncen"
+      class="min-h-80 col-span-12 col-start-1 mb-14 object-cover lg:col-span-10 lg:col-start-2 lg:mb-24 rounded-sm shadow-xl">
     {{-- description 2 --}}
     <div class="col-span-10 col-start-2 mb-14 grid grid-cols-10 items-center lg:mb-24">
       {{-- carousel --}}
-      <div class="carousel col-span-10 mb-14 md:col-span-5 md:mb-0">
+      <div class="carousel col-span-10 mb-14 md:col-span-5 md:mb-0 rounded-sm shadow-xl">
         <img src="{{ asset('/img/tenda-tentang.png') }}" alt="" class="invisible">
         <div class="slide-image bg-[url('/public/img/tenda-tentang.png')]">
           <img src="{{ asset('/img/tenda-tentang.png') }}" alt="" class="invisible">
@@ -52,10 +52,10 @@
       </p>
     </div>
     {{-- other activities --}}
-    <div class="col-span-12 col-start-1 mb-14 grid grid-cols-2 grid-rows-2 lg:mb-24">
-      <img src="{{ asset('img/api-unggun.png') }}" alt="" class="row-span-2 h-[100%]">
-      <img src="{{ asset('img/wedding.png') }}" alt="">
-      <img src="{{ asset('img/outbond.png') }}" alt="">
+    <div class="col-span-12 col-start-1 mb-14 grid grid-cols-2 grid-rows-2 lg:mb-24 shadow-xl">
+      <img src="{{ asset('img/api-unggun.png') }}" alt="" class="row-span-2 h-[100%] rounded-l-sm">
+      <img src="{{ asset('img/wedding.png') }}" alt="" class="rounded-tr-sm">
+      <img src="{{ asset('img/outbond.png') }}" alt="" class="rounded-br-sm">
     </div>
   </article>
 
