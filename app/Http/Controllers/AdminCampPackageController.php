@@ -82,8 +82,10 @@ class AdminCampPackageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CampPackage $campPackage)
+    public function destroy(CampPackage $paket_camping)
     {
-        //
+        $paket_camping->delete();
+
+        return to_route('admin.paket-camping.index');
     }
 }
