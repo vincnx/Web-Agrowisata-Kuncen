@@ -55,9 +55,9 @@ class AdminCampPackageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CampPackage $campPackage)
+    public function edit(CampPackage $paket_camping)
     {
-        //
+        return view('admin.camp_packages.edit', compact('paket_camping'));
     }
 
     /**
