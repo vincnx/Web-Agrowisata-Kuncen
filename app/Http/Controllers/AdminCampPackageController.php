@@ -63,9 +63,20 @@ class AdminCampPackageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CampPackage $campPackage)
+    public function update(Request $request, CampPackage $paket_camping)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+            'harga' => 'required',
+        ]);
+        $validated['tenda'] = $request->input('tenda', 0);
+        $validated['matras'] = $request->input('matras', 0);
+        $validated['sleeping_bag'] = $request->input('sleeping_bag', 0);
+        $validated['kayu_bakar'] = $request->input('kayu_bakar', 0);
+        $validated['alat_masak'] = $request->input('alat_masak', 0);
+        $paket_camping->update($validated);
+
+        return to_route('admin.paket-camping.index');
     }
 
     /**
