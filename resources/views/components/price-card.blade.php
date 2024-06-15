@@ -1,20 +1,21 @@
 @props(['data'])
 
 <div {{ $attributes->merge(['class' => 'rounded-lg shadow-xl min-w-fit dark:bg-gray-800']) }}>
-  <div class="bg-green-page rounded-t-lg py-4 shadow-lg">
+  <div class="bg-main-page rounded-t-lg py-4 shadow-lg">
     <h3 class="text-xl font-semibold text-white">{{ $data->nama }}</h3>
   </div>
-  <div class="flex align-top justify-center p-7">
-    <h3 class="text-green-page font-semibold">Rp</h3>
-    <h3 class="text-green-page font-bold text-5xl">{{ $data->harga/1000 }}K</h3>
+  <div class="flex align-top px-7 py-5 justify-center">
+    <h3 class="text-dark-blue-page font-semibold">Rp</h3>
+    <h3 class="text-dark-blue-page font-bold text-5xl">{{ $data->harga/1000 }}K</h3>
   </div>
+  <div class="h-[2px] bg-dark-blue-page w-full mb-5"></div>
   <div class="mx-auto w-fit p-10 pt-0 text-left">
     <ul>
       {{-- tenda --}}
       <li class="mb-5 flex basis-auto items-center">
         @if ($data->tenda)
           <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="29" height="29" rx="14.5" fill="#5EC992" />
+            <rect width="29" height="29" rx="14.5" fill="#2E475D" />
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M6 14.5L8.125 12.3333L12.375 16.6667L20.875 8L23 10.1667L12.375 21L6 14.5Z" fill="white" />
           </svg>
@@ -27,7 +28,7 @@
           </svg>
         @endif
         <div class="ms-3 w-fit">
-          <p class="font-medium leading-none">Tenda Kapasitas 4-6 Orang</p>
+          <p class="font-semibold leading-none">Tenda Kapasitas 4-6 Orang</p>
           <p class="text-sm leading-none text-gray-500">Notes : Pasang & bongkar</p>
         </div>
       </li>
@@ -36,7 +37,7 @@
       <li class="mb-5 flex items-center">
         @if ($data->matras)
           <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="29" height="29" rx="14.5" fill="#5EC992" />
+            <rect width="29" height="29" rx="14.5" fill="#2E475D" />
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M6 14.5L8.125 12.3333L12.375 16.6667L20.875 8L23 10.1667L12.375 21L6 14.5Z" fill="white" />
           </svg>
@@ -48,14 +49,14 @@
               fill="white" />
           </svg>
         @endif
-        <p class="ms-3 font-medium leading-none">Matras</p>
+        <p class="ms-3 font-semibold leading-none">Matras</p>
       </li>
 
       {{-- sleeping bag --}}
       <li class="mb-5 flex items-center">
         @if ($data->sleeping_bag)
           <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="29" height="29" rx="14.5" fill="#5EC992" />
+            <rect width="29" height="29" rx="14.5" fill="#2E475D" />
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M6 14.5L8.125 12.3333L12.375 16.6667L20.875 8L23 10.1667L12.375 21L6 14.5Z" fill="white" />
           </svg>
@@ -67,14 +68,14 @@
               fill="white" />
           </svg>
         @endif
-        <p class="ms-3 font-medium leading-none">Sleeping Bag</p>
+        <p class="ms-3 font-semibold leading-none">Sleeping Bag</p>
       </li>
 
       {{-- kayu bakar --}}
       <li class="mb-5 flex items-center">
         @if ($data->kayu_bakar)
           <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="29" height="29" rx="14.5" fill="#5EC992" />
+            <rect width="29" height="29" rx="14.5" fill="#2E475D" />
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M6 14.5L8.125 12.3333L12.375 16.6667L20.875 8L23 10.1667L12.375 21L6 14.5Z" fill="white" />
           </svg>
@@ -86,14 +87,14 @@
               fill="white" />
           </svg>
         @endif
-        <p class="ms-3 font-medium leading-none">Kayu Bakar</p>
+        <p class="ms-3 font-semibold leading-none">Kayu Bakar</p>
       </li>
 
       {{-- alat masak --}}
       <li class="mb-5 flex items-center">
         @if ($data->alat_masak)
           <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="29" height="29" rx="14.5" fill="#5EC992" />
+            <rect width="29" height="29" rx="14.5" fill="#2E475D" />
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M6 14.5L8.125 12.3333L12.375 16.6667L20.875 8L23 10.1667L12.375 21L6 14.5Z" fill="white" />
           </svg>
@@ -105,7 +106,7 @@
               fill="white" />
           </svg>
         @endif
-        <p class="ms-3 font-medium leading-none">Alat Masak</p>
+        <p class="ms-3 font-semibold leading-none">Alat Masak</p>
       </li>
     </ul>
   </div>
