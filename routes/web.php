@@ -14,6 +14,7 @@ use GuzzleHttp\Promise\Create;
 // })->name('home');
 
 Route::get('/', [HomeController::class, 'index'])->name('beranda');
+Route::post('/', [HomeController::class, 'store'])->name('beranda.pesan');
 
 Route::get('/tentang', function(){
     return view('tentang');
