@@ -20,22 +20,22 @@
 
   {{-- alpine --}}
   <script src="//unpkg.com/alpinejs" defer></script>
-  
+
   <!-- Scripts -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="font-sans antialiased">
   <div class="w-full flex-col md:flex md:min-h-screen md:flex-row">
-    <div
-      class="flex w-full flex-shrink-0 flex-col bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200 md:w-64"
+    <div class="text-dark-blue-page md:sticky flex md:h-screen top-0  flex-shrink-0 flex-col bg-gray-50 md:w-64"
       x-data="{ open: false }" @click.away="open = false">
-      
+
       <div class="flex flex-shrink-0 flex-row items-center justify-between px-4 py-4">
         {{-- logo --}}
-        <a href="{{ route('beranda') }}" class="flex items-center">
+        <a href="{{ route('admin.index') }}" class="flex items-center">
           <img src="{{ URL::to('/img/RemoveBGLogo.png') }}" alt="" class="max-w-14">
-          <p class="leading-none text-sm">AGROWISATA<br><span class="font-bold">KUNCEN POLOBOGO</span><br><span class="text-xs font-light italic leading-none">Come Here to Believe it</span></p>
+          <p class="text-sm leading-none">AGROWISATA<br><span class="font-bold">KUNCEN POLOBOGO</span><br><span
+              class="text-xs font-light italic leading-none">Come Here to Believe it</span></p>
         </a>
         {{-- responsive toggle --}}
         <button class="focus:shadow-outline rounded-lg focus:outline-none md:hidden" @click="open = !open">
@@ -58,10 +58,10 @@
           {{ __('Paket Camping') }}
         </x-admin-nav-link>
         <x-admin-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
-          {{ __('Tables') }}
+          {{ __('Pesan') }}
         </x-admin-nav-link>
         <x-admin-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
-          {{ __('Reservations') }}
+          {{ __('Kembali ke Menu Utama') }}
         </x-admin-nav-link>
         <div class="relative" x-data="{ open: false }" @click.away="open = false">
           <button
@@ -100,10 +100,11 @@
         </div>
       </nav>
     </div>
-    <main class="m-2 p-8 w-full">
+    <main class="m-2 w-full p-8">
       @yield('content')
     </main>
   </div>
 </body>
 @yield('script')
+
 </html>

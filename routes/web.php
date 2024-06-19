@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminCampPackageController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\Admin;
@@ -31,9 +32,7 @@ Route::get('/fasilitas', function(){
 })->name('fasilitas');
 
 Route::middleware(['auth', 'verified', Admin::class])->name('admin.')->prefix('admin')->group(function(){
-    Route::get('/', function () {
-        return view('admin.index');
-    })->name('index');
+    Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('/berita', AdminPostController::class)->parameters([
         'berita' => 'post'
     ]);
