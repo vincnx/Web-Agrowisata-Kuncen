@@ -225,7 +225,8 @@
 
       {{-- form --}}
       <div class="col-span-8 row-span-2 p-9 shadow-xl lg:col-span-3 lg:row-span-4">
-        <form action="" class="flex flex-col gap-5">
+        <form method="post" action="{{ route('beranda.pesan') }}" class="flex flex-col gap-5">
+          @csrf
           <div>
             <label for="nama" class="mb-2">Nama Lengkap</label>
             <input type="text" name="nama" placeholder="Nama"
