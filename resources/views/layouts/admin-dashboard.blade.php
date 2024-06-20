@@ -57,7 +57,7 @@
         <x-admin-nav-link :href="route('admin.paket-camping.index')" :active="request()->routeIs('admin.paket-camping*')">
           {{ __('Paket Camping') }}
         </x-admin-nav-link>
-        <x-admin-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
+        <x-admin-nav-link :href="route('admin.pesan')" :active="request()->routeIs('admin.pesan')">
           {{ __('Pesan') }}
         </x-admin-nav-link>
         <x-admin-nav-link :href="route('beranda')" :active="request()->routeIs('beranda')">
