@@ -4,7 +4,7 @@
   <h1 class="text-dark-blue-page mb-20 text-center text-5xl font-bold">Dashboard Agrowisata Kuncen</h1>
   <div class="grid grid-cols-12 gap-6 mb-11">
     {{-- paket camping --}}
-    <div class="col-span-6 h-fit">
+    <div class="col-span-12 sm:col-span-6 h-fit">
       <div class="mb-5 flex items-end justify-between">
         <h2 class="text-dark-blue-page text-2xl font-semibold">Paket Camping</h2>
         <a href="{{ route('admin.paket-camping.index') }}" class="text-main-page text-end font-semibold">Lihat Selengkapnya</a>
@@ -68,10 +68,10 @@
     </div>
 
     {{-- pesan --}}
-    <div class="col-span-6 h-fit">
+    <div class="col-span-12 sm:col-span-6 h-fit">
       <div class="mb-5 flex items-end justify-between">
         <h2 class="text-dark-blue-page text-2xl font-semibold">Pesan Pengunjung</h2>
-        <a href="{{ route('admin.index') }}" class="text-main-page text-end font-semibold">Lihat Selengkapnya</a>
+        <a href="{{ route('admin.pesan') }}" class="text-main-page text-end font-semibold">Lihat Selengkapnya</a>
       </div>
       <div class="overflow-x-auto rounded-lg shadow-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right">
@@ -98,7 +98,7 @@
                 </td>
                 {{-- isi --}}
                 <td class="px-6 py-4 text-center">
-                  {{ Str::words(strip_tags($message->pesan), 5, '...') }}
+                  {{ Str::limit(strip_tags($message->pesan), 20, '...') }}
                 </td>
                 {{-- fasilitas --}}
                 <td class="px-6 py-4">
@@ -118,7 +118,7 @@
       <h2 class="text-dark-blue-page text-2xl font-semibold">Berita Kuncen</h2>
       <a href="{{ route('admin.berita.index') }}" class="text-main-page text-end font-semibold">Lihat Selengkapnya</a>
     </div>
-    <div class="overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="overflow-x-auto shadow-md rounded-lg">
       <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
         <thead class="bg-main-page text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>

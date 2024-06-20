@@ -26,8 +26,8 @@
 </head>
 
 <body class="font-sans antialiased">
-  <div class="w-full flex-col md:flex md:min-h-screen md:flex-row">
-    <div class="text-dark-blue-page md:sticky flex md:h-screen top-0  flex-shrink-0 flex-col bg-gray-50 md:w-64"
+  <div class="w-full flex-col lg:flex lg:min-h-screen lg:flex-row">
+    <div class="text-dark-blue-page lg:sticky flex lg:h-screen top-0  flex-shrink-0 flex-col bg-gray-50 lg:w-64"
       x-data="{ open: false }" @click.away="open = false">
 
       <div class="flex flex-shrink-0 flex-row items-center justify-between px-4 py-4">
@@ -38,7 +38,7 @@
               class="text-xs font-light italic leading-none">Come Here to Believe it</span></p>
         </a>
         {{-- responsive toggle --}}
-        <button class="focus:shadow-outline rounded-lg focus:outline-none md:hidden" @click="open = !open">
+        <button class="focus:shadow-outline rounded-lg focus:outline-none lg:hidden" @click="open = !open">
           <svg fill="currentColor" viewBox="0 0 20 20" class="h-6 w-6">
             <path x-show="!open" fill-rule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
@@ -50,7 +50,7 @@
         </button>
       </div>
 
-      <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-4 pb-4 md:block md:overflow-y-auto md:pb-0">
+      <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-4 pb-4 lg:block lg:overflow-y-auto lg:pb-0">
         <x-admin-nav-link :href="route('admin.berita.index')" :active="request()->routeIs('admin.berita*')">
           {{ __('Berita') }}
         </x-admin-nav-link>

@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function index(){
         $posts = Post::orderBy('waktu_upload', 'desc')->paginate(5);
-        $packages = CampPackage::paginate(4);
+        $packages = CampPackage::paginate(5);
         $messages = Message::paginate(4);
         return view('admin.index', compact('posts', 'packages', 'messages'));
     }
