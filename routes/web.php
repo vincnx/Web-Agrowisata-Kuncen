@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminCampPackageController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminMessageController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\Admin;
@@ -9,10 +10,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use GuzzleHttp\Promise\Create;
-
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('home');
 
 Route::get('/', [HomeController::class, 'index'])->name('beranda');
 Route::post('/', [HomeController::class, 'store'])->name('beranda.pesan');
@@ -37,6 +34,7 @@ Route::middleware(['auth', 'verified', Admin::class])->name('admin.')->prefix('a
         'berita' => 'post'
     ]);
     Route::resource('/paket-camping', AdminCampPackageController::class);
+    Route::get('/pesan', [AdminMessageController::class, 'index'])->name('pesan');
 });
 
 Route::middleware('auth')->group(function () {
