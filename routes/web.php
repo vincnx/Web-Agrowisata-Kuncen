@@ -23,13 +23,13 @@ Route::name('berita')->prefix('berita')->group(function(){
     Route::get('/{post:slug}', [PostController::class, 'show'])->name('_post');
 });
 
-
 Route::get('/fasilitas', function(){
     return view('fasilitas');
 })->name('fasilitas');
 
 Route::middleware(['auth', 'verified', Admin::class])->name('admin.')->prefix('admin')->group(function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::put('/{price_image:id}', [AdminController::class, 'edit'])->name('index.edit');
     Route::resource('/berita', AdminPostController::class)->parameters([
         'berita' => 'post'
     ]);

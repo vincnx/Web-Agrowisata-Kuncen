@@ -2,12 +2,64 @@
 
 @section('content')
   <h1 class="text-dark-blue-page mb-20 text-center text-5xl font-bold">Dashboard Agrowisata Kuncen</h1>
-  <div class="grid grid-cols-12 gap-6 mb-11">
+
+  <div class="mb-11 grid grid-cols-12 gap-6">
+    {{-- menu makanan --}}
+    <div class="col-span-4">
+      <form action="{{ route('admin.index.edit', $price_images->id ) }}" class="mb-5 flex items-end justify-between" enctype="multipart/form-data" method="post">
+        <h2 class="text-dark-blue-page text-2xl font-semibold">Menu Makanan</h2>
+        @csrf
+        @method('put')
+        <label for="makanan" class="text-main-page cursor-pointer font-semibold">
+          <span>Edit</span>
+          <input id="makanan" name="img_file" type="file" class="sr-only" onchange="change_image(this.id, event)">
+        </label>
+        <input type="text" name="type" value="makanan" class="hidden">
+        <button type="submit" class="text-main-page font-semibold hidden" id="submit-makanan">Simpan</button>
+      </form>
+      <img src={{ Storage::url($price_images->makanan) }} id="img-makanan" alt="" class="rounded-md w-full aspect-[9/12] object-contain bg-dark-blue-page">
+    </div>
+
+    {{-- peta lokasi --}}
+    <div class="col-span-4">
+      <form action="{{ route('admin.index.edit', $price_images->id ) }}" class="mb-5 flex items-end justify-between" enctype="multipart/form-data" method="post">
+        <h2 class="text-dark-blue-page text-2xl font-semibold">Peta Lokasi</h2>
+        @csrf
+        @method('put')
+        <label for="peta" class="text-main-page cursor-pointer font-semibold">
+          <span>Edit</span>
+          <input id="peta" name="img_file" type="file" class="sr-only" onchange="change_image(this.id, event)">
+        </label>
+        <input type="text" name="type" value="peta" class="hidden">
+        <button type="submit" class="text-main-page font-semibold hidden" id="submit-peta">Simpan</button>
+      </form>
+      <img src={{ Storage::url($price_images->peta) }} id="img-peta" alt="" class="rounded-md w-full aspect-[9/12] object-contain bg-dark-blue-page">
+    </div>
+
+    {{-- peralatan --}}
+    <div class="col-span-4 h-full overflow-hidden">
+      <form action="{{ route('admin.index.edit', $price_images->id ) }}" class="mb-5 flex items-end justify-between" enctype="multipart/form-data" method="post">
+        <h2 class="text-dark-blue-page text-2xl font-semibold">Peralatan</h2>
+        @csrf
+        @method('put')
+        <label for="peralatan" class="text-main-page cursor-pointer font-semibold">
+          <span>Edit</span>
+          <input id="peralatan" name="img_file" type="file" class="sr-only" onchange="change_image(this.id, event)">
+        </label>
+        <input type="text" name="type" value="peralatan" class="hidden">
+        <button type="submit" class="text-main-page font-semibold hidden" id="submit-peralatan">Simpan</button>
+      </form>
+      <img src={{ Storage::url($price_images->peralatan) }} id="img-peralatan" alt="" class="rounded-md w-full aspect-[9/12] object-contain bg-dark-blue-page">
+    </div>
+  </div>
+
+  <div class="mb-11 grid grid-cols-12 gap-6">
     {{-- paket camping --}}
-    <div class="col-span-12 sm:col-span-6 h-fit">
+    <div class="col-span-12 h-fit sm:col-span-6">
       <div class="mb-5 flex items-end justify-between">
         <h2 class="text-dark-blue-page text-2xl font-semibold">Paket Camping</h2>
-        <a href="{{ route('admin.paket-camping.index') }}" class="text-main-page text-end font-semibold">Lihat Selengkapnya</a>
+        <a href="{{ route('admin.paket-camping.index') }}" class="text-main-page text-end font-semibold">Lihat
+          Selengkapnya</a>
       </div>
       <div class="overflow-x-auto rounded-lg shadow-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right">
@@ -68,7 +120,7 @@
     </div>
 
     {{-- pesan --}}
-    <div class="col-span-12 sm:col-span-6 h-fit">
+    <div class="col-span-12 h-fit sm:col-span-6">
       <div class="mb-5 flex items-end justify-between">
         <h2 class="text-dark-blue-page text-2xl font-semibold">Pesan Pengunjung</h2>
         <a href="{{ route('admin.pesan') }}" class="text-main-page text-end font-semibold">Lihat Selengkapnya</a>
@@ -118,7 +170,7 @@
       <h2 class="text-dark-blue-page text-2xl font-semibold">Berita Kuncen</h2>
       <a href="{{ route('admin.berita.index') }}" class="text-main-page text-end font-semibold">Lihat Selengkapnya</a>
     </div>
-    <div class="overflow-x-auto shadow-md rounded-lg">
+    <div class="overflow-x-auto rounded-lg shadow-md">
       <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
         <thead class="bg-main-page text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -168,4 +220,20 @@
       </table>
     </div>
   </div>
+@endsection
+
+@section('script')
+  <script>
+    function a(){
+      const img = document.querySelector('#gambar')
+      document.body.style.backgroudColor = "red"
+    }
+    function change_image(id) {
+      console.log(id)
+      const img = document.querySelector('#' + id)
+      const img_preview = document.querySelector('#img-' + id)
+      document.querySelector('#submit-' + id).style.display = 'block'
+      img_preview.src = URL.createObjectURL(img.files[0])
+    }
+  </script>
 @endsection
